@@ -1,5 +1,21 @@
 #include "grafix.h"
 
+typedef struct ButtonGUI{
+    int x;
+    int y;
+    int width;
+    int height;
+    char* text;
+    int isHover;
+}Button;
+
+extern struct ManageGUI{
+    grafixWindow* window;
+    grafixFont font;
+    
+    Button button[4];
+}GUI;
+
 extern grafixWindow* window;
 extern grafixFont font;
 

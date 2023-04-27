@@ -1,7 +1,6 @@
 #include "gui.h"
 
-grafixWindow* window;
-grafixFont font;
+
 
 grafixColor WHITE = (grafixColor){255,255,255};
 grafixColor YELLOW = (grafixColor){255,255,0};
@@ -27,6 +26,9 @@ void drawGUI(){
 }
 
 void initGUI(grafixWindow* winw){
-    window = winw;
-    createGrafixFont(&font,"./asserts/jbr.ttf",16);
+    GUI.window = winw;
+    createGrafixFont(&GUI.font,"./asserts/jbr.ttf",16);
+    
+    GUI.button[1].x = 840;
+
 }
