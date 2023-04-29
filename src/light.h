@@ -1,0 +1,17 @@
+#include "grafix.h"
+
+#ifndef LIGHT_H
+#define LIGHT_H
+
+#include "ray.h"
+#define MAX_RAYS 50
+
+typedef struct RayLight{
+    int x;
+    int y;
+    grafixColor emitColor;
+    
+    Ray rays[MAX_RAYS];
+}Light;
+
+#endif /* LIGHT_H */
