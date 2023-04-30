@@ -24,7 +24,7 @@ int main(){
         fillGrafixWindow(window,(grafixColor){0,0,0});
 
         for(int i = 0; i < MAX_RAYS; i++){
-            drawRayLine(window, );
+            drawRayLine(window );
         }
 
         manageGrafixEvent(window,&event,&eventSize);
