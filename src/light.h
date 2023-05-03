@@ -9,9 +9,14 @@
 typedef struct RayLight{
     int x;
     int y;
+    int intensity;
     grafixColor emitColor;
     
+    int _isInit;
     Ray rays[MAX_RAYS];
 }Light;
+
+void initLight(Light* light);
+void drawLight(grafixWindow window, Light light);
 
 #endif /* LIGHT_H */

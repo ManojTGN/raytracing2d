@@ -1,9 +1,8 @@
 #include "ray.h"
-#include "grafix.h"
+
 
 void drawRayLine(grafixWindow window, Ray ray){
     if( WINDOWS[window.id] == NULL|| window.isDead ) return;
-
     int dx = abs(ray.dir[0]*ray.distance - ray.x);
     int dy = abs(ray.dir[1]*ray.distance - ray.y);
     int sx = ray.x < ray.dir[0]*ray.distance ? 1 : -1;
@@ -12,6 +11,7 @@ void drawRayLine(grafixWindow window, Ray ray){
 
     while (ray.x != ray.dir[0]*ray.distance || ray.y != ray.dir[1]*ray.distance) {
         _setPixel(window, ray.x, ray.y, ray.emitColor);
+        
         int e2 = err << 1;
         if (e2 > -dy) {
             err -= dy;
@@ -24,5 +24,5 @@ void drawRayLine(grafixWindow window, Ray ray){
     }
     
     _setPixel(window, ray.dir[0]*ray.distance, ray.dir[1]*ray.distance, ray.emitColor);
-
+    
 }

@@ -12,20 +12,13 @@ int main(){
     createGrafixWindow(&window,WIDTH,HEIGHT,"RayTracing2d");
     showGrafixWindow(window);
     
-    Light light = { WIDTH/2,HEIGHT/2,(grafixColor){255,255,255} };
-    double aspect_ratio = (double)WIDTH / (double)HEIGHT;
-
-    for(int i = 0; i < MAX_RAYS; i++){
-        light.rays[i].dir[0] = light.x + (WIDTH) * cos(2 * M_PI * i / MAX_RAYS);
-        light.rays[i].dir[1] = light.y + (HEIGHT) * sin(2 * M_PI * i / MAX_RAYS);
-    }
+    Light light = { WIDTH/2,HEIGHT/2,800,(grafixColor){255,255,255},0};
+    initLight(&light);
 
     while(!isGrafixWindowEnded(window)){
         fillGrafixWindow(window,(grafixColor){0,0,0});
 
-        for(int i = 0; i < MAX_RAYS; i++){
-            drawRayLine(window );
-        }
+        drawLight(window,light);
 
         manageGrafixEvent(window,&event,&eventSize);
         for(int i = 0; i < eventSize; i++){
@@ -33,6 +26,7 @@ int main(){
                 endGrafixWindow(window);
             }
         }
+
         printf("%d\r",getGrafixFPS(window));
         updateGrafixWindow(window);
         updateGrafixTime(window);

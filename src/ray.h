@@ -1,3 +1,4 @@
+#include "grafix.h"
 
 #ifndef RAY_H
 #define RAY_H
